@@ -2,6 +2,18 @@
 Python code to rate pictures (.jpg format) 
 
 
+
+Generate virtual environment (venv) using:
+python -m venv venv
+pip install -r requirements.txt
+
+Activate environement using:
+.\venv\Scripts\activate
+(deactivate using deactivate)
+
+Generate standalone .exe file with 
+pyinstaller --onefile --add-data C:\Users\paulg\Desktop\Rate_Pictures\venv\Lib\site-packages\pyexiv2:pyexiv2  Rate_pictures_XMP.py
+
 Package                   Version
 ------------------------- --------
 altgraph                  0.17.4
