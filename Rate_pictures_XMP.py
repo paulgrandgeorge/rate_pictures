@@ -7,7 +7,6 @@ Created on Wed Nov 22 16:57:36 2023
 
 import numpy as np
 
-
 import os 
 import PIL
 # from PIL import Image
@@ -60,8 +59,10 @@ def go(img_no_rated, img_no, rating):
         img_no = find_next_no_rating(img_no_rated)
     if img_no==-20:
         img_no = find_previous_no_rating(img_no_rated)
-    # if img_no==len(image_names)+1:
-    #     img_no = 0
+    if img_no==len(image_names):
+        img_no = 0
+    if img_no==-1:
+        img_no = len(image_names)-1
 
     display_image(img_no)
     display_buttons(img_no)
@@ -212,7 +213,7 @@ def display_image(img_no):
     ### option to have thumbnails of previous and next images on the side
 
     if want_thumbnails: 
-        if img_no == len(image_names):
+        if img_no == len(image_names)-1:
             PIL_image = Image.open(image_names[0])
         else:
             PIL_image = Image.open(image_names[img_no+1])
